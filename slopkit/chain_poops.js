@@ -41,7 +41,7 @@ const STOP_BEFORE_DOUBLE = params.get("stop") === "beforedouble";
 function hostOk() {
     var m = document.getElementById("msgs");
     if (m) {
-        m.innerHTML = "GoldHEN Loaded Successfully ...";
+        m.innerHTML = "Jailbreak Done ✓...";
     }
 }
 
