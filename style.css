@@ -24,3 +24,25 @@ hr{display:none}
 #out .ok{color:var(--green)}#out .bad{color:var(--red)}#out .warn{color:#ffd27b}
 body.done #msgs{color:var(--green)}body.fail #msgs{color:#ff9aad}body.log #out{display:block}
 @media(max-width:600px){body{padding:25px 14px 22px}.brand{font-size:12px;letter-spacing:2px}.status-card{padding:25px 15px}.subtitle{font-size:15px}.feature{min-width:42%;flex:1}}
+
+
+/* Circular jailbreak progress panel */
+.progress-wrap{display:flex;flex-direction:column;align-items:center;gap:13px;margin:4px auto 0}
+.progress-ring{position:relative;width:168px;height:168px;filter:drop-shadow(0 0 18px rgba(166,107,255,.22))}
+.progress-ring svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.progress-ring circle{fill:none;stroke-width:9}
+.ring-track{stroke:rgba(164,174,218,.18)}
+.ring-value{stroke:url(#progressGradient);stroke:#bd8cff;stroke-linecap:round;stroke-dasharray:427.26;stroke-dashoffset:410;transition:stroke-dashoffset .45s ease}
+.progress-number{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:2px;font-size:39px;font-weight:800;letter-spacing:-1px;text-shadow:0 0 20px rgba(166,107,255,.35)}
+.progress-number small{font-size:17px;color:#d6c5ff;margin-top:12px}
+.progress-caption{color:#d9c8ff;font-size:15px;font-weight:700;letter-spacing:.4px;min-height:20px}
+#msgs{font-size:clamp(18px,2.8vw,25px)!important}
+.progress-track{width:min(420px,88%);height:7px;overflow:hidden;border-radius:20px;background:rgba(174,187,216,.15);box-shadow:inset 0 1px 3px rgba(0,0,0,.35)}
+.progress-fill{height:100%;width:4%;border-radius:20px;background:linear-gradient(90deg,#6b7dff,#bd75ff,#f0c5ff);box-shadow:0 0 14px rgba(189,117,255,.65);transition:width .45s ease}
+body.done .ring-value{stroke:#62f5b1}
+body.done .progress-fill{background:linear-gradient(90deg,#35d99a,#8affcf)}
+body.done .progress-caption{color:#62f5b1}
+body.fail .ring-value{stroke:#ff718e}
+body.fail .progress-fill{background:#ff718e}
+body.fail .progress-caption{color:#ff9aad}
+@media(max-width:600px){.progress-ring{width:150px;height:150px}.progress-number{font-size:35px}}
